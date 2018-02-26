@@ -39,6 +39,7 @@
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GlB-LY-cYz"/>
                                     <action selector="stopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VUG-dS-pyi"/>
+                                    <segue destination="RQZ-6h-Ii3" kind="show" id="1xw-49-5qU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3b-W4-MeF">
