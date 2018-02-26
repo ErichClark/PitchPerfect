@@ -18,22 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHT-wS-yd2">
-                                <rect key="frame" x="129.5" y="251" width="115" height="52"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title=" Record ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHT-wS-yd2">
+                                <rect key="frame" x="110" y="256" width="155" height="155"/>
+                                <state key="normal" image="recordButton">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ir3-dF-Jxz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHj-du-rxC">
-                                <rect key="frame" x="132.5" y="363" width="110" height="52"/>
-                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <state key="normal" title="   Stop   ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHj-du-rxC">
+                                <rect key="frame" x="150" y="475" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="c8r-Pf-egd"/>
+                                    <constraint firstAttribute="height" constant="75" id="uCm-tz-rds"/>
+                                </constraints>
+                                <state key="normal" image="stopButton">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -42,25 +42,27 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3b-W4-MeF">
-                                <rect key="frame" x="122" y="317" width="130.5" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <rect key="frame" x="88.5" y="415" width="199.5" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rHj-du-rxC" firstAttribute="top" secondItem="T3b-W4-MeF" secondAttribute="bottom" constant="19" id="2vQ-0j-ia7"/>
-                            <constraint firstItem="T3b-W4-MeF" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-13" id="G1X-xc-mwA"/>
-                            <constraint firstItem="T3b-W4-MeF" firstAttribute="top" secondItem="AHT-wS-yd2" secondAttribute="bottom" constant="14" id="PFY-Qv-moh"/>
-                            <constraint firstItem="T3b-W4-MeF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tye-eY-DkM"/>
-                            <constraint firstItem="AHT-wS-yd2" firstAttribute="centerX" secondItem="T3b-W4-MeF" secondAttribute="centerX" id="y8d-UY-cjO"/>
-                            <constraint firstItem="rHj-du-rxC" firstAttribute="centerX" secondItem="T3b-W4-MeF" secondAttribute="centerX" id="zCQ-vr-CwL"/>
+                            <constraint firstItem="T3b-W4-MeF" firstAttribute="top" secondItem="AHT-wS-yd2" secondAttribute="bottom" constant="4" id="1u5-ew-yBZ"/>
+                            <constraint firstItem="AHT-wS-yd2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7jd-Nj-F4c"/>
+                            <constraint firstItem="AHT-wS-yd2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qqu-w9-CQj"/>
+                            <constraint firstItem="rHj-du-rxC" firstAttribute="centerX" secondItem="T3b-W4-MeF" secondAttribute="centerX" id="pwU-HZ-DMd"/>
+                            <constraint firstItem="T3b-W4-MeF" firstAttribute="centerX" secondItem="AHT-wS-yd2" secondAttribute="centerX" id="t3p-GN-arC"/>
+                            <constraint firstItem="rHj-du-rxC" firstAttribute="top" secondItem="T3b-W4-MeF" secondAttribute="bottom" constant="19" id="zdE-9r-Om7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="recordButton" destination="AHT-wS-yd2" id="tlC-8b-Qp4"/>
                         <outlet property="recordingLabel" destination="T3b-W4-MeF" id="VeS-Z0-fkl"/>
+                        <outlet property="stopRecordingButton" destination="rHj-du-rxC" id="n7S-Dt-w3k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -68,4 +70,8 @@
             <point key="canvasLocation" x="136.80000000000001" y="106.59670164917542"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="recordButton" width="155" height="155"/>
+        <image name="stopButton" width="155" height="155"/>
+    </resources>
 </document>
