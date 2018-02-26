@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class RecordSoundsViewController: UIViewController {
 
+    var audioRecorder: AVAudioRecorder!
+    
     @IBOutlet weak var recordingLabel: UILabel!
     
     @IBOutlet weak var recordButton: UIButton!
@@ -27,24 +30,36 @@ class RecordSoundsViewController: UIViewController {
         print("viewWillAppear called")
         stopRecordingButton.isEnabled = false
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     @IBAction func recordAudio(_ sender: Any) { // From "Record" button
         print("The record button has been pressed.")
-        recordingLabel.text = "Recording has started."
+        recordingLabel.text = "Recording in progress."
         recordButton.isEnabled = false
         stopRecordingButton.isEnabled = true
+        
+        let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
+        let recordingName = "recordedVoice.wav"
+        let pathArray = [dirPath, recordingName]
+        let filePath = URL(string: pathArray.joined(separator: "/"))
+        
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayAndRecord, with:AVAudioSessionCategoryOptions.defaultToSpeaker)
+        
+        try! audioRecorder = AVAudioRecorder(url: filePath!, settings: [:])
+        audioRecorder.isMeteringEnabled = true
+        audioRecorder.prepareToRecord()
+        audioRecorder.record()
     }
     
-    @IBAction func stopButton(_ sender: Any) { // From "Stop"
+    @IBAction func stopRecording(_ sender: Any) { // From "Stop" button
         print("The stop button was pressed.")
         recordingLabel.text = "Tap to record"
         stopRecordingButton.isEnabled = false
         recordButton.isEnabled = true
+        
+        audioRecorder.stop()
+        let audioSession = AVAudioSession.sharedInstance()
+        try! audioSession.setActive(false)
     }
 }
 
