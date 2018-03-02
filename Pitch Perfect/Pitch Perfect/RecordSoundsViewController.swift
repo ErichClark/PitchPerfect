@@ -47,6 +47,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.isMeteringEnabled = true
         audioRecorder.prepareToRecord()
         audioRecorder.record()
+        print("Recording started at:")
+        printTime()
     }
     
     @IBAction func stopRecording(_ sender: Any) { // From "Stop" button
@@ -62,7 +64,8 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
-            print("Recording was successful!")
+            print("Recording ended at:")
+            printTime()
         } else {
             print("Recording was unsucessful")
         }
@@ -74,6 +77,21 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
             let recordedAudioURL = sender as! URL
             playSoundsVC.recordedAudioURL = (recordedAudioURL as NSURL!) as URL!
         }
+    }
+    
+    func printTime() {
+        // get the current date and time
+        let currentDateTime = Date()
+        
+        // initialize the date formatter and set the style
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        formatter.dateStyle = .none
+        formatter.string(from: currentDateTime)
+        
+        // get the date time String from the date object
+        let timeStamp = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
+        print(timeStamp)
     }
     
 }
