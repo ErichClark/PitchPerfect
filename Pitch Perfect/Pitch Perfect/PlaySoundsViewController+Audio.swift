@@ -37,14 +37,13 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         // initialize (recording) audio file
         do {
             audioFile = try AVAudioFile(forReading: recordedAudioURL as URL)
-            print("URL has been passed in setupAudio")
         } catch {
             showAlert(Alerts.AudioFileError, message: String(describing: error))
         }
     }
     
     func playSound(rate: Float? = nil, pitch: Float? = nil, echo: Bool = false, reverb: Bool = false) {
-        print("playSound has been called")
+        
         // initialize audio engine components
         audioEngine = AVAudioEngine()
         
@@ -56,7 +55,6 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         let changeRatePitchNode = AVAudioUnitTimePitch()
         if let pitch = pitch {
             changeRatePitchNode.pitch = pitch
-            print("Pitch was changed")
         }
         if let rate = rate {
             changeRatePitchNode.rate = rate

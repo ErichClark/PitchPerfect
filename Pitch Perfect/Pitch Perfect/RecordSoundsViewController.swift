@@ -14,25 +14,39 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     var audioRecorder: AVAudioRecorder!
     
+    // MARK: outlets
+    
     @IBOutlet weak var recordingLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var stopRecordingButton: UIButton!
     
+    // MARK: Configures UI for recording
+    
+    func configureUIforRecording(readyToRecord: Bool){
+        if !readyToRecord {
+            recordingLabel.text = "Recording in progress"
+            stopRecordingButton.isEnabled = true
+            recordButton.isEnabled = false
+        } else if readyToRecord {
+            recordingLabel.text = "Tap to record"
+            stopRecordingButton.isEnabled = false
+            recordButton.isEnabled = true
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        stopRecordingButton.isEnabled = false
-        recordingLabel.text = "Tap to record"
+        configureUIforRecording(readyToRecord: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
 
+    // MARK: recordAudio function
+    
     @IBAction func recordAudio(_ sender: Any) { // From "Record" button
-        recordingLabel.text = "Recording in progress"
-        stopRecordingButton.isEnabled = true
-        recordButton.isEnabled = false
+        configureUIforRecording(readyToRecord: false)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -48,24 +62,26 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.prepareToRecord()
         audioRecorder.record()
         print("Recording started at:")
-        printTime()
+        printTimeStamp()
     }
     
+    // MARK: stopRecording function
+    
     @IBAction func stopRecording(_ sender: Any) { // From "Stop" button
-        recordingLabel.text = "Tap to record"
-        stopRecordingButton.isEnabled = false
-        recordButton.isEnabled = true
+        configureUIforRecording(readyToRecord: true)
         
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
     }
     
+    // MARK: Ends recording, passes URL in segue to next VC
+    
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
             print("Recording ended at:")
-            printTime()
+            printTimeStamp()
         } else {
             print("Recording was unsucessful")
         }
@@ -79,7 +95,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
-    func printTime() {
+    // Mark: printTime debugger function
+    
+    func printTimeStamp() {
         // get the current date and time
         let currentDateTime = Date()
         
