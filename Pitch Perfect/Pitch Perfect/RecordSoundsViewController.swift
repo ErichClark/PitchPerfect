@@ -111,6 +111,6 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         let timeStamp = formatter.string(from: currentDateTime) // October 8, 2016 at 10:48:53 PM
         print(timeStamp)
     }
-    
+
 }
 
