@@ -57,8 +57,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Pitch Perfect" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neb-Xq-2sx" userLabel="App description">
-                                <rect key="frame" x="68" y="232.5" width="240" height="48.5"/>
-                                <fontDescription key="fontDescription" name="VTCLettererPro" family="VTC Letterer Pro" pointSize="34"/>
+                                <rect key="frame" x="68" y="227" width="240" height="54"/>
+                                <fontDescription key="fontDescription" name="VTCLettererPro" family="VTC Letterer Pro" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
