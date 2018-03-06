@@ -75,7 +75,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
         try! audioSession.setActive(false)
     }
     
-    // MARK: Ends recording, passes URL in segue to next VC
+    // MARK: Ends recording, passes URL to next VC via segue
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
