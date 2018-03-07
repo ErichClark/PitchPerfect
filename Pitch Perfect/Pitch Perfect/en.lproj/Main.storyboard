@@ -109,7 +109,7 @@
                                                     <action selector="playSoundForButton:" destination="RQZ-6h-Ii3" eventType="touchUpInside" id="VPT-5z-ClC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dQ-Pw-NTv" userLabel="rabbitButton">
+                                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dQ-Pw-NTv" userLabel="rabbitButton">
                                                 <rect key="frame" x="160" y="0.0" width="160" height="102"/>
                                                 <state key="normal" image="Fast"/>
                                                 <connections>
@@ -128,7 +128,7 @@
                                                     <action selector="playSoundForButton:" destination="RQZ-6h-Ii3" eventType="touchUpInside" id="aNp-Pe-1bF"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-eQ-Utt" userLabel="vaderButton">
+                                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmY-eQ-Utt" userLabel="vaderButton">
                                                 <rect key="frame" x="160" y="0.0" width="160" height="102"/>
                                                 <state key="normal" image="LowPitch"/>
                                                 <connections>
@@ -140,7 +140,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NQf-hf-6UY" userLabel="FX Stack View">
                                         <rect key="frame" x="0.0" y="204" width="320" height="102"/>
                                         <subviews>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVM-RW-upk" userLabel="echoButton">
+                                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVM-RW-upk" userLabel="echoButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="102"/>
                                                 <state key="normal" image="Echo"/>
                                                 <connections>
