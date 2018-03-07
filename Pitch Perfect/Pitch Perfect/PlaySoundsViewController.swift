@@ -58,6 +58,21 @@ class PlaySoundsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
+        configureButtons()
+    }
+    
+    private func configureButtons() {
+        configure(button: snailButton)
+        configure(button: chipmunkButton)
+        configure(button: rabbitButton)
+        configure(button: vaderButton)
+        configure(button: echoButton)
+        configure(button: reverbButton)
+    }
+    
+    private func configure(button: UIButton) {
+        button.contentMode = .center
+        button.imageView?.contentMode = .scaleAspectFit
     }
 
     override func viewWillAppear(_ animated: Bool) {
