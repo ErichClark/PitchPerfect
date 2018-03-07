@@ -21,22 +21,23 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var stopRecordingButton: UIButton!
     
     // MARK: Configures UI for recording
+    // now broken into two separate functions
     
-    func configureUIforRecording(readyToRecord: Bool){
-        if !readyToRecord {
-            recordingLabel.text = "Recording in progress"
-            stopRecordingButton.isEnabled = true
-            recordButton.isEnabled = false
-        } else if readyToRecord {
-            recordingLabel.text = "Tap to record"
-            stopRecordingButton.isEnabled = false
-            recordButton.isEnabled = true
-        }
+    func configureUIRecordingInProgress(){
+        recordingLabel.text = "Recording in progress"
+        stopRecordingButton.isEnabled = true
+        recordButton.isEnabled = false
+    }
+    
+    func configureUIReadyToRecord() {
+        recordingLabel.text = "Tap to record"
+        stopRecordingButton.isEnabled = false
+        recordButton.isEnabled = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUIforRecording(readyToRecord: true)
+        configureUIReadyToRecord()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +47,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     // MARK: recordAudio function
     
     @IBAction func recordAudio(_ sender: Any) { // From "Record" button
-        configureUIforRecording(readyToRecord: false)
+        configureUIRecordingInProgress()
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -68,7 +69,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     // MARK: stopRecording function
     
     @IBAction func stopRecording(_ sender: Any) { // From "Stop" button
-        configureUIforRecording(readyToRecord: true)
+        configureUIReadyToRecord()
         
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
